@@ -2,15 +2,13 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-async function main() {
-  try {
-    await prisma.$connect();
-    console.log("[Database Postgres] Status: on");
-    return prisma;
-  } catch (error) {
-    console.log("[Database Postgres] Error: " + error.message);
-    throw error;
-  }
-}
+prisma
+  .$connect()
+  .then(() => {
+    console.log("[Database] Postgres status: on");
+  })
+  .catch((err) => {
+    throw Error(err.message);
+  });
 
-export default main;
+export default prisma;
