@@ -25,11 +25,12 @@ services:
     ports:
       - "5433:5432"
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: test
+      POSTGRES_USER: melem
+      POSTGRES_PASSWORD: 12345
     networks:
       - mongo-compose-network
+    volumes:
+      -/usr/database/pg
 
 networks:
   mongo-compose-network:

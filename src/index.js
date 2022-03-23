@@ -3,8 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
 // import PublicRouter from "./routes/public";
-import MongoDb from "./database/mongoose";
-import RedisDb from "./database/redis";
+import "./database/";
 
 const app = express();
 
@@ -12,9 +11,6 @@ const app = express();
 if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
-
-MongoDb();
-RedisDb();
 
 app.use(morgan("dev"));
 app.use(cors());
